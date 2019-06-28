@@ -1,22 +1,17 @@
 import React from "react";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import LoginPage from "./containers/login";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LoginPage from "./containers/login";
+import HomePage from "./containers/home";
 
 function App() {
   return (
-    <div>
-      <h1>HOME PAGE</h1>
-      <p> Welcome to the Homepage!</p>
-      {/* <ul>
-        <li>
-          <Link to="/login">Login Page</Link> 
-      </li>
-      </ul> */}
-      {/* <Router>
-        <Route path="/" component={App} />
+    <Router>
+      <div>
+        <HomePage />
+        <Route exact path="/" component={App} />
         <Route path="/login" component={LoginPage} />
-      </Router> */}
-    </div>
+      </div>
+    </Router>
   );
 }
 
