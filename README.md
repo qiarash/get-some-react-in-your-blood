@@ -23,6 +23,8 @@ Your app is ready to be deployed!
 
 ## Challenge
 
+Fork this project and continue 
+
 
 ##### 0) Project structure
 
