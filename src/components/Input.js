@@ -1,11 +1,7 @@
 import React from "react";
 
 function Input(props) {
-  return (
-    <div>
-      <input type={props.type} onChange={props.onChange} />
-    </div>
-  );
+  return <input type={props.type} onChange={props.onChange} />;
 }
 
 export default Input;

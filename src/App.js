@@ -1,7 +1,5 @@
 import React from "react";
-// import logo from "./logo.svg";
-// import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
 import LoginPage from "./containers/login";
 
 function App() {
@@ -9,14 +7,15 @@ function App() {
     <div>
       <h1>HOME PAGE</h1>
       <p> Welcome to the Homepage!</p>
-      <Router>
-        <div>
-          <nav>
-            <Link to="/login">LOGIN PAGE</Link>
-          </nav>
-          <Route path="/login" exact component={LoginPage} />
-        </div>
-      </Router>
+      <ul>
+        <li>
+          <Link to="/login">Login Page</Link>
+        </li>
+      </ul>
+      <Switch>
+        <Route path="/" component={App} />
+        <Route path="/login" component={LoginPage} />
+      </Switch>
     </div>
   );
 }

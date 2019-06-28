@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../components/Input";
 import Submit from "../components/Submit";
+import { BrowserRouter as Link } from "react-router-dom";
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -32,7 +33,11 @@ class LoginPage extends React.Component {
       <form>
         <Input type={"USERNAME"} value="" onChange={this.onChange1} />
         <Input type={"PASSWORD"} value="" onChange={this.onChange2} />
-        <Submit onClick={this.submit} />
+        <li>
+          <Link to="/">
+            <Submit onClick={this.submit} value="Login" />
+          </Link>
+        </li>
       </form>
     );
   }
