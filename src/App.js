@@ -6,16 +6,18 @@ import HomePage from "./containers/home";
 const divStyle = {
   padding: 50,
   textAlign: "center"
+  // backgroundColor: "#e7e7e7",
+  // height: "84vh" //100% not working
 };
 
 function App() {
   return (
-    <Router>
-      <div style={divStyle}>
+    <div style={divStyle}>
+      <Router>
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={LoginPage} />
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 

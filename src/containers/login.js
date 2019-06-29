@@ -3,6 +3,10 @@ import Input from "../components/Input";
 import Submit from "../components/Submit";
 import { Link } from "react-router-dom";
 
+const formStyle = {
+  padding: 5
+};
+
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
@@ -33,12 +37,20 @@ class LoginPage extends React.Component {
       <div>
         <h1>Login Page</h1>
         <p>Please enter your login credentials</p>
-        <form>
-          <div>
-            <Input type={"USERNAME"} value="" onChange={this.onChange1} />
+        <form style={formStyle}>
+          <div style={formStyle}>
+            <Input
+              type={"USERNAME"}
+              onChange={this.onChange1}
+              label={"Username: "}
+            />
           </div>
-          <div>
-            <Input type={"PASSWORD"} value="" onChange={this.onChange2} />
+          <div style={formStyle}>
+            <Input
+              type={"PASSWORD"}
+              onChange={this.onChange2}
+              label={"Password: "}
+            />
           </div>
           <Link to="/">
             <Submit onClick={this.submit} value="Login" />
