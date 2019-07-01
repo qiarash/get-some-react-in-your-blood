@@ -7,7 +7,7 @@ export default class LoginInput extends React.Component {
   
   render() {
     return (
-		<input type={this.props.type}  placeholder ={this.props.placeholder} onChange={this.props.onChange} />
+		<input name={this.props.name} type={this.props.type}  placeholder ={this.props.placeholder} onChange={this.props.onChange} />
     );
   }
   

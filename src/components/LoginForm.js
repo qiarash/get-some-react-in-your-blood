@@ -6,8 +6,7 @@ export default class LoginForm extends React.Component {
 	
 	constructor(props) {
     super(props);
-	this.handleUsernameChange = this.handleUsernameChange.bind(this);
-	this.handlePasswordChange = this.handlePasswordChange.bind(this);
+	this.handleInputChange = this.handleInputChange.bind(this);
 	this.handleSubmit = this.handleSubmit.bind(this);
 	this.state = {
 		name : null,
@@ -16,26 +15,19 @@ export default class LoginForm extends React.Component {
 		};
 	}
 	
-	handleUsernameChange(event) {
-		 const username = event.target.value;
-		 this.setState(state => ({
-			username: this.username,
-		}));
-		console.log("got username event");
-	}
-	
-	handlePasswordChange(event) {
-		const password = event.target.value;
-		this.setState(state => ({
-			password: this.password,
-		}));
+	handleInputChange(event) {
+		 let input = event.target.name;
+		 this.setState({
+			[input]: event.target.value,
+		});
+		console.log(event.target.name);
 	}
 	
 	handleSubmit(event) {
 		event.preventDefault();
-		 this.setState(state => ({
+		 this.setState({
 			redirect: true,
-		}));
+		});
 	}
   
    render() {
@@ -44,8 +36,8 @@ export default class LoginForm extends React.Component {
 	  }
     return (
       <form onSubmit={this.handleSubmit}>
-		<LoginInput type="text" placeholder="Username" onChange={this.handleUsernameChange} />
-        <LoginInput type="text" placeholder="Password" onChange={this.handlePasswordChange} />
+		<LoginInput name="user" type="text" placeholder="Username" onChange={this.handleInputChange} />
+        <LoginInput name="password" type="text" placeholder="Password" onChange={this.handleInputChange} />
 		<button type="submit"> Submit your login </button>
       </form>      
     );
