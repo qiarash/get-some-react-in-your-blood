@@ -23,7 +23,7 @@ Your app is ready to be deployed!
 
 ## Challenge
 
-Fork this project and continue 
+Fork this project and continue
 
 
 ##### 0) Project structure
@@ -47,6 +47,23 @@ Fork this project and continue
 - after user hitting submit button should navigate to home page. use [react-router](https://reacttraining.com/react-router/web/guides/quick-start) for routing.
 
 > Note: for install npm package use `npm install <package>` or `yarn add <package>`
+
+##### 1.5) create a form component with react.
+
+- should have props fields which is an array of objects, the object schema should be: `{name, placeholder, type, required}`
+
+- should have `onSubmitCallback` function prop
+- title and info props
+
+##### 2) create a modal component.
+
+- a modal component is a nasty and hacky component but will make a better UI (I don't agree actually).
+
+- implement [redux](https://react-redux.js.org/introduction/quick-start) store
+
+- create an action which will open the modal
+
+- create a reducer which has the app modal state `{ isOpen, modalType }`
 
 
 This challenge has more steps.
