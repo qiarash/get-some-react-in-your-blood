@@ -1,4 +1,3 @@
-
 export function openModal() {
 	return {
 		type: 'OPEN_MODAL'

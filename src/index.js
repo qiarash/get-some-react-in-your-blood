@@ -5,13 +5,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import LoginPage from './containers/LoginPage';
 import ModalPage from './containers/ModalPage';
-import Modal from './reducers/Modal';
+import ModalReducer from './reducers/ModalReducer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import 'typeface-roboto';
 
-const store = createStore(Modal)
+const store = createStore(ModalReducer)
 
 const routing = (
  <Provider store={store}>	

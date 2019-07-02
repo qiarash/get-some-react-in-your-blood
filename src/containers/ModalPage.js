@@ -1,23 +1,61 @@
 import React from 'react';
-import Form from '../components/Form';
 import CustomModal from "../components/CustomModal";
 import {
-	Redirect
-} from "react-router-dom";
+	openModal,
+	closeModal
+} from '../actions/ModalActions';
+import {
+	bindActionCreators
+} from 'redux';
+import {
+	connect
+} from 'react-redux';
 
-export default class ModalPage extends React.Component {
+class ModalPage extends React.Component {
 
 
-	constructor(props) {
-		super(props);	
+
+	getModalStyle() {
+		const top = 50 + Math.round(Math.random() * 20) - 10;
+		const left = 50 + Math.round(Math.random() * 20) - 10;
+		return {
+			top: `${top}%`,
+			left: `${left}%`,
+			transform: `translate(-${top}%, -${left}%)`,
+		};
 	}
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			isActive: false
+		}
+		this.modalStyle = this.getModalStyle();
+	}
+
+
+
 	render() {
-	  return (
-	  <div>
-	  	<CustomModal />
+		return (
+			<div>
+	  	<CustomModal style={this.modalStyle} body="OH yea this is a modal body" title="shiit, this is the title" isActive={this.props.isActive} onClick={this.props.openModal} onClose={this.props.closeModal}/>
 	  </div>
-	  
 		);
 	}
 }
+
+const mapStateToProps = (state) => {
+	return {
+		isActive: state.isActive
+	};
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({
+		openModal: openModal,
+		closeModal: closeModal
+	}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModalPage)
