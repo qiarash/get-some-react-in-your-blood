@@ -1,18 +1,13 @@
 import React from "react";
 
-import LoginInput from "./LoginInput";
-export default class LoginForm extends React.Component {
+import Input from "./Input";
+export default class Form extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.handleInputChange = this.handleInputChange.bind(this);
-		this.state = {
-			name: null,
-			password: null,
-		};
-
 		this.inputs = this.props.fields.map((object, index) => {
-			return <LoginInput key={index} name={object.name} type={object.type} placeholder={object.placeholder} onChange={this.handleInputChange} required={object.required} />;
+			return <Input key={index} name={object.name} type={object.type} placeholder={object.placeholder} onChange={this.handleInputChange} required={object.required} />;
 		});
 
 	}
@@ -25,10 +20,12 @@ export default class LoginForm extends React.Component {
 		console.log(event.target.name);
 	}
 
-
 	render() {
 		return (
-			<form onSubmit={this.props.onSubmit}>
+			<form onSubmit={(event) => {
+				event.preventDefault(); // stop form submission
+				this.props.onSubmit(this.state)
+			}}>
 	   			<h1> {this.props.title} </h1>
 	   			<h2> {this.props.info} </h2>
 		  		{this.inputs}

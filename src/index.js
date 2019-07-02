@@ -4,14 +4,25 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import LoginPage from './containers/LoginPage';
-import {Route, BrowserRouter as Router} from 'react-router-dom'
+import ModalPage from './containers/ModalPage';
+import Modal from './reducers/Modal';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
+import 'typeface-roboto';
+
+const store = createStore(Modal)
+
 const routing = (
+ <Provider store={store}>	
   <Router>
     <div>
       <Route exact path="/" component={App} />
       <Route path="/login" component={LoginPage} />
+      <Route path="/modal" component={ModalPage} />
     </div>
   </Router>
+  </Provider>
 )
 ReactDOM.render(routing, document.getElementById('root'));
 

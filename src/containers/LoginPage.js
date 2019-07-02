@@ -1,5 +1,6 @@
 import React from 'react';
-import LoginForm from '../components/LoginForm';
+import Form from '../components/Form';
+import CustomModal from "../components/CustomModal";
 import {
 	Redirect
 } from "react-router-dom";
@@ -19,15 +20,14 @@ export default class LoginPage extends React.Component {
 			name: "password",
 			type: "text",
 			placeholder: "password",
-			required: "required"
+			required: "required" 
 		}];
 		this.state = {
 			redirect: false
 		};
 	}
 
-	onSubmit(event) {
-		event.preventDefault();
+	onSubmit(formState) {
 		this.setState({
 			redirect: true,
 		});
@@ -39,8 +39,9 @@ export default class LoginPage extends React.Component {
 		}
 		return (
 	  <div>
-	  	<LoginForm title="This is my login form title!" info="This is my info" fields={this.fields} onSubmit={this.onSubmit} />
+	  	<Form title="This is my login form title!" info="This is my info" fields={this.fields} onSubmit={this.onSubmit} />
 	  </div>
+	  
 		);
 	}
 }
