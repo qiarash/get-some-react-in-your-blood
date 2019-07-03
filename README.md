@@ -66,4 +66,18 @@ Fork this project and continue
 - create a reducer which has the app modal state `{ isOpen, modalType }`
 
 
-This challenge has more steps.
+###### 3) create a post page
+
+- route should be like `/posts/:postId`
+- calls dummy api defined in `/src/api`
+- should present data passed from api call
+- should have next and previous posts button (which rouutes will be `/routes/<:postId+1>` and `/routes/<:postId-1>`)
+
+> Goals: learning promises, api calls, dynamic routing with react-router
+
+
+###### 4) Styling
+
+- animate modal opening and closing with `react-transition-group`
+
+- style post page with `styled-components`
