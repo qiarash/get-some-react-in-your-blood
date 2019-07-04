@@ -34,7 +34,7 @@ class ModalPage extends React.Component {
 	}
 
 
-
+ 
 	render() {
 		return (
 			<div>

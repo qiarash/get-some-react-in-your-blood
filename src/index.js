@@ -5,13 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import LoginPage from './containers/LoginPage';
 import ModalPage from './containers/ModalPage';
-import ModalReducer from './reducers/ModalReducer';
+import rootReducer from './reducers/';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import PostPage from './containers/PostPage';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import 'typeface-roboto';
 
-const store = createStore(ModalReducer)
+const store = createStore(rootReducer)
 
 const routing = (
  <Provider store={store}>	
@@ -20,6 +21,7 @@ const routing = (
       <Route exact path="/" component={App} />
       <Route path="/login" component={LoginPage} />
       <Route path="/modal" component={ModalPage} />
+      <Route path="/posts/:id" component={PostPage} />
     </div>
   </Router>
   </Provider>

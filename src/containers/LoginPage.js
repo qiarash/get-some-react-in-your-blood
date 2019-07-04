@@ -30,7 +30,7 @@ export default class LoginPage extends React.Component {
 		this.setState({
 			redirect: true,
 		});
-	}
+	} 
 
 	render() {
 		if (this.state.redirect) {
