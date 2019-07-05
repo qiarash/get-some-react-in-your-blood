@@ -42,14 +42,20 @@ class PostPage extends React.Component {
 	}
 
 
+	componentDidUpdate() {
+		//console.log(this.props.match.params.id); // since using redux, match.params.id is already being tracked
+	}
+
+
 	handleClick(e) {
 		if (e.target.name === "forward") {
-			this.props.goForward();
-
+			console.log("clicked forward");
+			this.props.goForward(); // could just setState here but wanted to use redux
 		} else {
-			this.props.goBackwards();
+			console.log("clicked backwards");
+			this.props.goBackwards(); // could just use setState here but wanted to use redux
 		}
-		this.props.history.push("" + this.props.id) // this actually does nothing afaik, but change URL.
+		this.props.history.push("" + this.props.id)
 	}
 
  
