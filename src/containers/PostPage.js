@@ -17,6 +17,13 @@ import Post from "../components/Post"
 import {
 	connect
 } from 'react-redux';
+import styled from 'styled-components'
+
+const StyledButton = styled.button `
+		  color: palevioletred;
+		  font-weight: bold;
+		`;
+
 class PostPage extends React.Component {
 
 
@@ -28,12 +35,13 @@ class PostPage extends React.Component {
 		}
 	}
 
+
 	componentDidMount() {
 		const idParam = this.props.match.params.id;
 		this.props.goForwardExact(parseInt(idParam));
 		fetch("http://www.mocky.io/v2/5d1db3d73000002a44d720f0") // could not get localhost json api calls to work with fetch. Maybe a directory issue.
 			.then((res) => res.json())
-			.then((data) => 
+			.then((data) =>
 				this.setState({
 					posts: data,
 					loaded: true
@@ -58,7 +66,7 @@ class PostPage extends React.Component {
 		this.props.history.push("" + this.props.id)
 	}
 
- 
+
 	render() {
 		if (!this.state.loaded) {
 			return (
@@ -70,8 +78,8 @@ class PostPage extends React.Component {
 		const currentPost = <Post id={this.props.id} subject={this.state.posts[this.props.id].subject} post={this.state.posts[this.props.id].post} />
 		return (
 			<div>
-	    <button name="backwards" onClick={(e) => this.handleClick(e)}> Back</button>
-	    <button name="forward" onClick={(e) => this.handleClick(e)}> Forward </button>
+	    <StyledButton name="backwards" onClick={(e) => this.handleClick(e)}> Back </StyledButton>
+	    <StyledButton name="forward" onClick={(e) => this.handleClick(e)}> Forward </StyledButton>
 		{currentPost}
 	    </div>
 		);
