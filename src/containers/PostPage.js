@@ -19,10 +19,19 @@ import {
 } from 'react-redux';
 import styled from 'styled-components'
 
+
+const ButtonContainer = styled.div `
+	text-align:center
+`
 const StyledButton = styled.button `
-		  color: palevioletred;
-		  font-weight: bold;
+		  display: inline-block;
+		  margin-left:20%;
+		  margin-right: 20%;
+		  width: 10%;
 		`;
+
+
+
 
 class PostPage extends React.Component {
 
@@ -59,11 +68,13 @@ class PostPage extends React.Component {
 		if (e.target.name === "forward") {
 			console.log("clicked forward");
 			this.props.goForward(); // could just setState here but wanted to use redux
+			this.props.history.push("" + (this.props.id + 1));
 		} else {
 			console.log("clicked backwards");
 			this.props.goBackwards(); // could just use setState here but wanted to use redux
+			this.props.history.push("" + (this.props.id - 1));
 		}
-		this.props.history.push("" + this.props.id)
+		
 	}
 
 
@@ -77,10 +88,12 @@ class PostPage extends React.Component {
 		}
 		const currentPost = <Post id={this.props.id} subject={this.state.posts[this.props.id].subject} post={this.state.posts[this.props.id].post} />
 		return (
-			<div>
+		<div>
+		{currentPost}
+		<ButtonContainer>
 	    <StyledButton name="backwards" onClick={(e) => this.handleClick(e)}> Back </StyledButton>
 	    <StyledButton name="forward" onClick={(e) => this.handleClick(e)}> Forward </StyledButton>
-		{currentPost}
+	    </ButtonContainer>
 	    </div>
 		);
 	}

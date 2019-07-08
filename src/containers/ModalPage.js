@@ -34,11 +34,11 @@ class ModalPage extends React.Component {
 	}
 
 
- 
+
 	render() {
 		return (
 			<div>
-	  	<CustomModal style={this.modalStyle} body="OH yea this is a modal body" title="shiit, this is the title" isActive={this.props.isActive} onClick={this.props.openModal} onClose={this.props.closeModal}/>
+	  	<CustomModal style={this.modalStyle} transitionIn={this.props.transitionIn} body="OH yea this is a modal body" title="shiit, this is the title" isActive={this.props.isActive} onClick={this.props.openModal} onClose={this.props.closeModal}/>
 	  </div>
 		);
 	}
@@ -46,7 +46,8 @@ class ModalPage extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		isActive: state.isActive
+		isActive: state.Modal.isActive,
+		transitionIn: state.Modal.transitionIn
 	};
 };
 
